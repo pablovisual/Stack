@@ -27,12 +27,12 @@ int main()
 	stackType<char> charstack;
 	charstack.push('m');
 	charstack.push('e');
+	charstack.push('h');
 	cout <<charstack.top() << endl;
 	charstack.pop();
 	charstack.pop();
 	cout << charstack.top() << endl;
 
-	stackType<int>(-1);
 	cout << "CLOCKS_PER_SEC: " << duration << '\n';
 	return 0;
 }

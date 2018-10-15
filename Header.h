@@ -1,8 +1,10 @@
 #pragma once
+///Header file : myStack.h
 #include<iostream>
 #include<string>
 #include <type_traits>
 #include <cassert>
+#include "Header.h"
 using namespace std;
 
 template<class T>
@@ -120,8 +122,8 @@ stackType<U>::stackType(int stackSize)
 	if(stackSize <= 0)
 	{
 		cout << "Size of the array to hold the stack must ";
-		cout << "be positive\n";
-		cout << "Creating an array of size 100.\n";
+		cout << "be positive\nbhh";
+		cout << "Creating an array of size 100hello there.\n";
 
 		maxStackSize = 100;
 	}
@@ -208,5 +210,21 @@ void stackType<U>::copyStack(const stackType<U>& otherStack)
 template <class U>
 stackType<U>::~stackType()
 {
-	delete[]list;
-}
+	delete[]list; ///deallocate the memory occupied by the stack
+}///end of deconstructor
+
+template <class U>
+stackType<U>::stackType(const stackType<U>& otherStack)
+{
+	list = nullptr;
+	copyStack(otherStack);
+}///end of copyStack
+
+template <class U>
+const stackType<U>& stackType<U>::operator=(const stackType<U>& otherStack)
+{
+	if (this != &otherStack) ///to avoid self copy
+		copyStack(otherStack);
+
+	return *this;
+}///end of operator=
