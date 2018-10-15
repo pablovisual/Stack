@@ -117,10 +117,21 @@ void stackType<U>::initializeStack() { stackTop = 0; } ///end of the stack
 template <class U>
 stackType<U>::stackType(int stackSize)
 {
+	if(stackSize <= 0)
+	{
+		cout << "Size of the array to hold the stack must ";
+		cout << "be positive\n";
+		cout << "Creating an array of size 100.\n";
+
+		maxStackSize = 100;
+	}
+
+	else
+		maxStackSize = stackSize; ///set max size of the stack to the stack size
+	
 	list = new U[stackSize]; ///the stack holds up to 100 items
-	stackTop = 0;
-	maxStackSize = stackSize; ///set max size of the stack to the stack size
-}
+	stackTop = 0; ///set stackTop to 0
+}///end  of constructor
 
 template <class U>
 bool stackType<U>::isEmptyStack() const
@@ -183,7 +194,15 @@ void stackType<U>::pop()
 template <class U>
 void stackType<U>::copyStack(const stackType<U>& otherStack)
 {
-	
+	delete[]list;
+	maxStackSize = otherStack.maxStackSize;
+	stackTop = otherStack.stackTop;
+	list = new U[maxStackSize];
+
+	///copy otherStack into this stack
+	for (int index = 0; index < stackTop; ++index)
+		list[index] = otherStack.list[index];
+	///end of copyStack
 }
 
 template <class U>
