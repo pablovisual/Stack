@@ -42,6 +42,8 @@ public:
 	///Function to remove the top element of the stack.
 	///Precondition: The stack exists and is not empty.
 	///Postcondition: The stack is changed and the top
+
+	virtual int size() = 0; ///return the size of the stack
 };
 
 template <class U>
@@ -83,6 +85,10 @@ public:
 	///Precondition: The stack exists and is not empty.
 	///Postcondition: The stack is changed and the top
 	///element is removed from the stack.
+
+	void resize();///if the stack can't hold anymore make it bigger
+
+	int size();
 
 	stackType(int stackSize = 100);
 	///Constructor
@@ -192,6 +198,13 @@ void stackType<U>::pop()
 		cout << previous << endl; ///outputting what was popped
 	}
 }
+
+template <class U>
+int stackType<U>::size()
+{
+	return 0;
+}
+
 
 template <class U>
 void stackType<U>::copyStack(const stackType<U>& otherStack)

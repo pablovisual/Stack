@@ -9,6 +9,7 @@ int main()
 {
 	clock_t const start = clock();
 	double const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
+	
 
 	/*cout << "hello\n";
 	stackType<int> myStack;
