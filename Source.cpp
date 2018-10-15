@@ -8,7 +8,7 @@ void testCopyConstructor(stackType<int> otherStack);
 int main()
 {
 	clock_t const start = clock();
-	double const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
+	
 	
 
 	/*cout << "hello\n";
@@ -46,13 +46,14 @@ int main()
 	stack.push(45);
 	stack.push(38);
 
-	cout << "THere are " << stack.size() << " elements in the stack\n";
+	cout << "There are " << stack.size() << " elements in the stack\n";
 	copyStack = stack;
 
 	cout << "The elements of copyStack:\n";
 
 	while(!copyStack.isEmptyStack())
 	{
+		cout << "Pushing: ";
 		cout << copyStack.top() << endl;
 		cout << "Popped: ";
 		cout << copyStack.pop();
@@ -73,12 +74,14 @@ int main()
 
 	while(!dummyStack.isEmptyStack())
 	{
+		cout << "Pushing: ";
 		cout << dummyStack.top() << endl;
 		cout << "Popped: ";
 		cout << dummyStack.pop();
 		cout << endl;
 	}
 
+	double const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
 	cout << "CLOCKS_PER_SEC: " << duration << '\n';
 	return 0;
 }
