@@ -20,8 +20,8 @@ int main()
 	cout << myStack.top() << endl;
 	cout << myStack.isEmptyStack() << endl;
 	cout << myStack.isFullStack() << endl;
-	myStack.pop();
-	myStack.pop();
+	cout << myStack.pop();
+	cout << myStack.pop();
 	cout << myStack.top() << endl;
 
 	stackType<string> mystackT;
@@ -33,8 +33,8 @@ int main()
 	charstack.push('m');
 	charstack.push('e');
 	cout <<charstack.top() << endl;
-	charstack.pop();
-	charstack.pop();
+	cout << charstack.pop();
+	cout << charstack.pop();
 	cout << charstack.top() << endl;*/
 
 	stackType<int> stack(50);
@@ -54,7 +54,7 @@ int main()
 	{
 		cout << copyStack.top() << endl;
 		cout << "Popped: ";
-		copyStack.pop();
+		cout << copyStack.pop();
 		cout << endl;
 	}
 
@@ -74,7 +74,7 @@ int main()
 	{
 		cout << dummyStack.top() << endl;
 		cout << "Popped: ";
-		dummyStack.pop();
+		cout << dummyStack.pop();
 		cout << endl;
 	}
 

@@ -38,7 +38,7 @@ public:
 	///terminates; otherwise, the top element
 	///of the stack is returned.
 
-	virtual void pop() = 0;
+	virtual T pop() = 0;
 	///Function to remove the top element of the stack.
 	///Precondition: The stack exists and is not empty.
 	///Postcondition: The stack is changed and the top
@@ -80,7 +80,7 @@ public:
 	///terminates; otherwise, the top element
 	///of the stack is returned.
 
-	void pop();
+	U pop();
 	///Function to remove the top element of the stack.
 	///Precondition: The stack exists and is not empty.
 	///Postcondition: The stack is changed and the top
@@ -189,13 +189,20 @@ U stackType<U>::top() const
 }
 
 template <class U>
-void stackType<U>::pop()
+U stackType<U>::pop()
 {
 	if(!isEmptyStack())
 	{
-		auto previous = list[stackTop - 1]; ///I'm setting U previous to be set to anything from the stacktop - 1
+		///auto previous = list[stackTop - 1]; ///I'm setting U previous to be set to anything from the stacktop - 1
 		--stackTop; ///decrementing stack, popping the stack
-		cout << previous << endl; ///outputting what was popped
+		///cout << previous << endl; ///outputting what was popped
+		return list[stackTop];
+	}
+
+	else
+	{
+		cout << "Can't pop from an empty stack\n";
+		return NULL;
 	}
 }
 
