@@ -46,6 +46,7 @@ int main()
 	stack.push(45);
 	stack.push(38);
 
+	cout << "THere are " << stack.size() << " elements in the stack\n";
 	copyStack = stack;
 
 	cout << "The elements of copyStack:\n";

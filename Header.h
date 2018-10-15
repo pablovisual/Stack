@@ -207,7 +207,7 @@ U stackType<U>::pop()
 template <class U>
 int stackType<U>::size()
 {
-	return 0;
+	return stackTop;
 }
 
 
