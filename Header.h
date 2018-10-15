@@ -86,9 +86,7 @@ public:
 	///Postcondition: The stack is changed and the top
 	///element is removed from the stack.
 
-	void resize();///if the stack can't hold anymore make it bigger
-
-	int size();
+	int size(); ///return the size of the stack
 
 	stackType(int stackSize = 100);
 	///Constructor
@@ -108,8 +106,8 @@ public:
 	///elements is deleted.
 
 private:
-	int maxStackSize; ///variable to store the maximum stack size
-	int stackTop; ///variable to point to the top of the stack
+	int maxStackSize{}; ///variable to store the maximum stack size
+	int stackTop{}; ///variable to point to the top of the stack
 	U *list; ///pointer to the array that holds the
 			 ///stack elements
 	void copyStack(const stackType<U>& otherStack);
