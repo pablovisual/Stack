@@ -188,7 +188,7 @@ void stackType<U>::pop()
 	if(!isEmptyStack())
 	{
 		auto previous = list[stackTop - 1]; ///I'm setting U previous to be set to anything from the stacktop - 1
-		stackTop--; ///decrementing stack, popping the stack
+		--stackTop; ///decrementing stack, popping the stack
 		cout << previous << endl; ///outputting what was popped
 	}
 }
