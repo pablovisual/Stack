@@ -8,8 +8,6 @@ void testCopyConstructor(stackType<int> otherStack);
 int main()
 {
 	clock_t const start = clock();
-	
-	
 
 	/*cout << "hello\n";
 	stackType<int> myStack;
@@ -38,8 +36,8 @@ int main()
 	cout << charstack.top() << endl;*/
 
 	stackType<int> stack(50);
-	stackType<int> copyStack(50);
-	stackType<int> dummyStack(100);
+	stackType<int> copy_stack(50);
+	stackType<int> dummy_stack(100);
 
 	stack.initializeStack();
 	stack.push(23);
@@ -47,41 +45,41 @@ int main()
 	stack.push(38);
 
 	cout << "There are " << stack.size() << " elements in the stack\n";
-	copyStack = stack;
+	copy_stack = stack;
 
 	cout << "The elements of copyStack:\n";
 
-	while(!copyStack.isEmptyStack())
+	while(!copy_stack.isEmptyStack())
 	{
 		cout << "Pushing: ";
-		cout << copyStack.top() << endl;
+		cout << copy_stack.top() << endl;
 		cout << "Popped: ";
-		cout << copyStack.pop();
+		cout << copy_stack.pop();
 		cout << endl;
 	}
 
 
-	copyStack = stack;
-	testCopyConstructor(copyStack);
+	copy_stack = stack;
+	testCopyConstructor(copy_stack);
 
 	if (!stack.isEmptyStack())
 		cout << "The original stack is not empty.\n" << "The top element of the original stack: "
 		<< stack.top() << endl;
 
-	dummyStack = stack;
+	dummy_stack = stack;
 
 	cout << "The elements of dummyStack:\n";
 
-	while(!dummyStack.isEmptyStack())
+	while(!dummy_stack.isEmptyStack())
 	{
 		cout << "Pushing: ";
-		cout << dummyStack.top() << endl;
+		cout << dummy_stack.top() << endl;
 		cout << "Popped: ";
-		cout << dummyStack.pop();
+		cout << dummy_stack.pop();
 		cout << endl;
 	}
 
-	double const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
+	auto const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
 	cout << "CLOCKS_PER_SEC: " << duration << '\n';
 	return 0;
 }

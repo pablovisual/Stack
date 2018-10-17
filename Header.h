@@ -126,8 +126,8 @@ stackType<U>::stackType(int stackSize)
 	if(stackSize <= 0)
 	{
 		cout << "Size of the array to hold the stack must ";
-		cout << "be positive\nbhh";
-		cout << "Creating an array of size 100hello there.\n";
+		cout << "be positive\n";
+		cout << "Creating an array of size 100.\n";
 
 		maxStackSize = 100;
 	}
