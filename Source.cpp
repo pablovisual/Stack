@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <fstream>
 #include <string>
 #include <ctime>
 #include "Header.h"
@@ -8,7 +10,57 @@ void testCopyConstructor(stackType<int> otherStack);
 int main()
 {
 	clock_t const start = clock();
+	double GPA; ///variable to hold the current GPA
+	double highestGPA; ///variable to hold the highest GPA
+	string name; ///varible to hold the name of the student
+	stackType<string> mystack(100); ///object to implement the stack
+	cout << fixed << showpoint << setprecision(2);
+	ifstream inputFile("input.txt");
 
+	if (!(inputFile.is_open()))
+	{
+		cout << "Could not open the file, or there is not file that exist\n";
+		return 1;
+	}
+	inputFile >> GPA >> name;
+	highestGPA = GPA;
+
+	while(inputFile)
+	{
+		if(GPA > highestGPA)
+		{
+			mystack.initializeStack();
+			if(!(mystack.isFullStack()))
+				mystack.push(name);
+
+			highestGPA = GPA;
+		}
+
+		else if(GPA == highestGPA)
+		{
+			if (!mystack.isFullStack())
+				mystack.push(name);
+
+			else
+			{
+				cout << "Stack overflows/is full\n";
+				return 1;
+			}
+		}
+
+		inputFile >> GPA >> name;
+	}
+
+	cout << "Highest GPA = " << highestGPA << endl;
+	cout << "The students holding the highest GPA are:\n";
+
+	while (!mystack.isEmptyStack())
+	{
+		cout << mystack.top() << endl;
+		cout << "Popping: " << mystack.pop() << endl;
+	}
+
+	cout << endl;
 	/*cout << "hello\n";
 	stackType<int> myStack;
 	myStack.initializeStack();
@@ -35,7 +87,7 @@ int main()
 	cout << charstack.pop();
 	cout << charstack.top() << endl;*/
 
-	stackType<int> stack(50);
+	/*stackType<int> stack(50);
 	stackType<int> copy_stack(50);
 	stackType<int> dummy_stack(100);
 
@@ -77,7 +129,7 @@ int main()
 		cout << "Popped: ";
 		cout << dummy_stack.pop();
 		cout << endl;
-	}
+	}*/
 
 	auto const duration = (clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
 	cout << "CLOCKS_PER_SEC: " << duration << '\n';
